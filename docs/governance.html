@@ -1,0 +1,112 @@
+<!--
+Purpose: document Mullusi public governance and verification rules.
+Governance scope: constraints, proof states, rollback, and release gates.
+Dependencies: public architecture docs and service release process.
+Invariants: all governance claims must preserve explicit cause, constraint, and verification boundaries.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Governance | Mullusi Docs</title>
+    <meta name="description" content="Mullusi governance rules for constraints, proof states, rollback, and release gates.">
+    <link rel="canonical" href="https://docs.mullusi.com/docs/governance.html">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">M</span><span>Mullusi Docs</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/docs/architecture.html">Architecture</a>
+        <a href="/docs/api.html">API</a>
+        <a href="/docs/tutorials.html">Tutorials</a>
+        <a href="/docs/governance.html">Governance</a>
+      </nav>
+    </header>
+
+    <main class="doc-layout">
+      <aside class="toc">
+        <a href="#laws">Laws</a>
+        <a href="#proof">Proof</a>
+        <a href="#release">Release</a>
+      </aside>
+      <article class="doc">
+        <p class="eyebrow">Governance</p>
+        <h1>Constraint And Proof Discipline</h1>
+        <p>
+          Mullusi systems separate action from judgment. A system action is allowed only
+          when its constraints, state transition, and verification path are explicit.
+        </p>
+
+        <h2 id="laws">Core Laws</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Law</th>
+              <th>Operational Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Completeness</td>
+              <td>Define symbols, boundaries, inputs, and outputs before execution.</td>
+            </tr>
+            <tr>
+              <td>Adequacy</td>
+              <td>Make relationships between components explicit.</td>
+            </tr>
+            <tr>
+              <td>Validation</td>
+              <td>Every state transition needs a traceable cause.</td>
+            </tr>
+            <tr>
+              <td>Constraint</td>
+              <td>Hard constraints block execution when unresolved.</td>
+            </tr>
+            <tr>
+              <td>Witness</td>
+              <td>Decisions require recorded justification.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="proof">Proof States</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pass</td>
+              <td>Proceed and record witness.</td>
+            </tr>
+            <tr>
+              <td>Fail</td>
+              <td>Block and record reason.</td>
+            </tr>
+            <tr>
+              <td>Unknown</td>
+              <td>Block hard constraints and gather evidence.</td>
+            </tr>
+            <tr>
+              <td>BudgetUnknown</td>
+              <td>Escalate when the evidence budget is exhausted.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="release">Release Gate</h2>
+        <p>
+          A public release needs a source repo, host, domain, validation command,
+          rollback path, and support channel. Research outputs need explicit limits
+          before they are presented as public product behavior.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>
+

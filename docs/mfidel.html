@@ -1,0 +1,90 @@
+<!--
+Purpose: document the public Mfidel boundary without implementing script processing.
+Governance scope: atomic fidel rules, overlay semantics, and prohibited decomposition models.
+Dependencies: Mullusi symbolic language research and future implementation specs.
+Invariants: each fidel is treated as atomic; no root-letter or codepoint decomposition model is introduced.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mfidel | Mullusi Docs</title>
+    <meta name="description" content="Mfidel atomicity rules for Mullusi Ethiopian script handling and sound overlays.">
+    <link rel="canonical" href="https://docs.mullusi.com/docs/mfidel.html">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">M</span><span>Mullusi Docs</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/docs/architecture.html">Architecture</a>
+        <a href="/docs/api.html">API</a>
+        <a href="/docs/tutorials.html">Tutorials</a>
+        <a href="/docs/governance.html">Governance</a>
+      </nav>
+    </header>
+
+    <main class="doc-layout">
+      <aside class="toc">
+        <a href="#atomicity">Atomicity</a>
+        <a href="#grid">Grid</a>
+        <a href="#prohibited">Prohibited</a>
+      </aside>
+      <article class="doc">
+        <p class="eyebrow">Mfidel</p>
+        <h1>Atomic Fidel Boundary</h1>
+        <p>
+          Mfidel treats each fidel as a complete symbolic unit. Shape, sound, and
+          identity are not split into root letters or internal components for processing.
+        </p>
+
+        <h2 id="atomicity">Atomicity Rule</h2>
+        <ul>
+          <li>Each fidel is atomic.</li>
+          <li>Atomic shape maps to atomic fidel identity.</li>
+          <li>Atomic fidel identity maps to atomic whisper sound.</li>
+          <li>Vowel overlays are sound-layer fusions, not structural decomposition.</li>
+        </ul>
+
+        <h2 id="grid">Grid Contract</h2>
+        <pre><code>f[row][col]
+row in 1..34
+col in 1..8</code></pre>
+        <p>
+          The grid reference is an addressing system. It must not be used to decompose a
+          fidel into lower structural units.
+        </p>
+
+        <h2 id="prohibited">Prohibited Models</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>Decision</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Root-letter extraction</td>
+              <td>Blocked</td>
+            </tr>
+            <tr>
+              <td>Consonant-plus-vowel token splitting</td>
+              <td>Blocked</td>
+            </tr>
+            <tr>
+              <td>Codepoint decomposition or recomposition</td>
+              <td>Blocked</td>
+            </tr>
+            <tr>
+              <td>Sound overlay as internal structure</td>
+              <td>Blocked</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </main>
+  </body>
+</html>
+

@@ -1,0 +1,115 @@
+<!--
+Purpose: public documentation landing page for Mullusi.
+Governance scope: developer orientation, architecture entry points, and public docs navigation.
+Dependencies: assets/styles.css and static HTML documentation pages.
+Invariants: no private secrets, no unsupported launch claims, and no hidden runtime dependency.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mullusi Docs</title>
+    <meta name="description" content="Technical documentation for Mullusi symbolic intelligence systems, governance, APIs, and tutorials.">
+    <link rel="canonical" href="https://docs.mullusi.com/">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Mullusi Docs home">
+        <span class="brand-mark">M</span>
+        <span>Mullusi Docs</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/docs/architecture.html">Architecture</a>
+        <a href="/docs/api.html">API</a>
+        <a href="/docs/tutorials.html">Tutorials</a>
+        <a href="/docs/governance.html">Governance</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Technical documentation</p>
+        <h1>Mullusi symbolic intelligence systems, explained by structure.</h1>
+        <p class="lead">
+          Public docs for the Mullusi stack: system boundaries, governance contracts,
+          API direction, tutorials, and Mfidel atomicity rules.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Start Here</h2>
+        <div class="card-grid">
+          <a class="card" href="/docs/architecture.html">
+            <span class="card-kicker">Structure</span>
+            <h3>Architecture</h3>
+            <p>System layers, repo boundaries, domains, and execution responsibilities.</p>
+          </a>
+          <a class="card" href="/docs/api.html">
+            <span class="card-kicker">Interface</span>
+            <h3>API</h3>
+            <p>Draft API shape for public services, health checks, and governed requests.</p>
+          </a>
+          <a class="card" href="/docs/tutorials.html">
+            <span class="card-kicker">Execution</span>
+            <h3>Tutorials</h3>
+            <p>Deterministic examples for local preview, product registry updates, and docs work.</p>
+          </a>
+          <a class="card" href="/docs/governance.html">
+            <span class="card-kicker">Verification</span>
+            <h3>Governance</h3>
+            <p>Constraint discipline, proof states, rollback rules, and release gates.</p>
+          </a>
+          <a class="card" href="/docs/mfidel.html">
+            <span class="card-kicker">Substrate</span>
+            <h3>Mfidel</h3>
+            <p>Atomic fidel boundary rules for Ethiopian script handling and sound overlays.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section split">
+        <div>
+          <h2>Company Map</h2>
+          <p>
+            Mullusi separates public website, documentation, platform services, SDKs,
+            research engines, and internal planning into distinct repositories and domains.
+          </p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Surface</th>
+              <th>Domain</th>
+              <th>Repo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Website</td>
+              <td>mullusi.com</td>
+              <td>mullusi-site</td>
+            </tr>
+            <tr>
+              <td>Docs</td>
+              <td>docs.mullusi.com</td>
+              <td>mullusi-docs</td>
+            </tr>
+            <tr>
+              <td>Platform</td>
+              <td>dashboard.mullusi.com / api.mullusi.com</td>
+              <td>mullu-control-plane</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Symbols are atomic. Meaning is relational. Traversal is governed.</span>
+      <a href="https://mullusi.com">mullusi.com</a>
+    </footer>
+  </body>
+</html>
+

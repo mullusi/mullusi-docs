@@ -1,0 +1,28 @@
+# Purpose: prevent local secrets, generated files, and editor noise from entering docs history.
+# Governance scope: repository hygiene and public-safe documentation.
+# Dependencies: Git clients and local preview tools.
+# Invariants: credentials and generated caches stay outside Git history.
+
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.p12
+*.pfx
+
+secrets/
+credentials/
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+.vscode/
+.idea/
+
+node_modules/
+__pycache__/
+.pytest_cache/
+

@@ -1,0 +1,69 @@
+<!--
+Purpose: provide deterministic tutorial entry points for Mullusi public systems.
+Governance scope: reproducible setup steps, public examples, and safe contribution flow.
+Dependencies: public repos, static docs host, and local preview tools.
+Invariants: tutorials must be executable or clearly marked as planned.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tutorials | Mullusi Docs</title>
+    <meta name="description" content="Mullusi tutorials for local preview, website registry updates, and documentation workflows.">
+    <link rel="canonical" href="https://docs.mullusi.com/docs/tutorials.html">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">M</span><span>Mullusi Docs</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/docs/architecture.html">Architecture</a>
+        <a href="/docs/api.html">API</a>
+        <a href="/docs/tutorials.html">Tutorials</a>
+        <a href="/docs/governance.html">Governance</a>
+      </nav>
+    </header>
+
+    <main class="doc-layout">
+      <aside class="toc">
+        <a href="#preview">Preview</a>
+        <a href="#website">Website</a>
+        <a href="#docs">Docs</a>
+      </aside>
+      <article class="doc">
+        <p class="eyebrow">Tutorials</p>
+        <h1>Deterministic Workflows</h1>
+        <p>
+          These tutorials start with repo-backed static systems. More platform tutorials
+          will be added after the control plane is launched.
+        </p>
+
+        <h2 id="preview">Preview Docs Locally</h2>
+        <ol>
+          <li>Clone `mullusi/mullusi-docs`.</li>
+          <li>Run a static server from the repo root.</li>
+          <li>Open the local URL and verify page links.</li>
+        </ol>
+        <pre><code>python3 -m http.server 8081</code></pre>
+
+        <h2 id="website">Update The Website Product Registry</h2>
+        <ol>
+          <li>Edit `data/products.json` in `mullusi/mullusi-site`.</li>
+          <li>Keep private repositories out of the public registry.</li>
+          <li>Validate JSON before commit.</li>
+          <li>Commit and push to `main`.</li>
+        </ol>
+
+        <h2 id="docs">Update Docs</h2>
+        <ol>
+          <li>Edit the smallest page that owns the claim.</li>
+          <li>Use clear stability labels for draft interfaces.</li>
+          <li>Verify local page load and links.</li>
+          <li>Commit with a direct message.</li>
+        </ol>
+      </article>
+    </main>
+  </body>
+</html>
+

@@ -1,0 +1,115 @@
+<!--
+Purpose: define the initial public API documentation surface for Mullusi.
+Governance scope: interface contracts, request lifecycle, health checks, and stability labels.
+Dependencies: future mullu-control-plane service and public docs host.
+Invariants: draft endpoints are labeled draft and must not imply production availability before launch.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>API | Mullusi Docs</title>
+    <meta name="description" content="Draft API documentation for Mullusi governed service interfaces.">
+    <link rel="canonical" href="https://docs.mullusi.com/docs/api.html">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">M</span><span>Mullusi Docs</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/docs/architecture.html">Architecture</a>
+        <a href="/docs/api.html">API</a>
+        <a href="/docs/tutorials.html">Tutorials</a>
+        <a href="/docs/governance.html">Governance</a>
+      </nav>
+    </header>
+
+    <main class="doc-layout">
+      <aside class="toc">
+        <a href="#status">Status</a>
+        <a href="#lifecycle">Lifecycle</a>
+        <a href="#endpoints">Endpoints</a>
+        <a href="#errors">Errors</a>
+      </aside>
+      <article class="doc">
+        <p class="eyebrow">API</p>
+        <h1>Governed Interface Draft</h1>
+        <p>
+          The Mullusi API will expose governed service requests through
+          `api.mullusi.com`. Until the control plane is launched, this page is a draft
+          contract and not a production availability claim.
+        </p>
+
+        <h2 id="status">Stability Labels</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Draft</td>
+              <td>Contract may change before launch.</td>
+            </tr>
+            <tr>
+              <td>Preview</td>
+              <td>Usable for testing with migration risk.</td>
+            </tr>
+            <tr>
+              <td>Stable</td>
+              <td>Versioned and covered by compatibility policy.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="lifecycle">Request Lifecycle</h2>
+        <pre><code>request
+  -> authenticate
+  -> validate schema
+  -> apply governance constraints
+  -> execute service action
+  -> emit trace
+  -> return typed response</code></pre>
+
+        <h2 id="endpoints">Draft Endpoints</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Status</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>GET /health</code></td>
+              <td>Draft</td>
+              <td>Report service readiness.</td>
+            </tr>
+            <tr>
+              <td><code>POST /v1/traversals</code></td>
+              <td>Draft</td>
+              <td>Submit a governed traversal request.</td>
+            </tr>
+            <tr>
+              <td><code>GET /v1/traversals/{id}</code></td>
+              <td>Draft</td>
+              <td>Fetch traversal state and trace metadata.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="errors">Error Contract</h2>
+        <p>
+          API errors should be typed, explicit, and traceable. Silent failures are not
+          accepted. Each rejected request must include a bounded reason that can be
+          logged and audited.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>
+

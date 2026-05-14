@@ -1,0 +1,113 @@
+<!--
+Purpose: describe public Mullusi architecture boundaries.
+Governance scope: system topology, repository responsibilities, and deployment surfaces.
+Dependencies: assets/styles.css and public operating map.
+Invariants: architecture claims stay public-safe and distinguish live systems from planned systems.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Architecture | Mullusi Docs</title>
+    <meta name="description" content="Mullusi public architecture map for website, docs, platform, SDK, research engines, and operations.">
+    <link rel="canonical" href="https://docs.mullusi.com/docs/architecture.html">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">M</span><span>Mullusi Docs</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/docs/architecture.html">Architecture</a>
+        <a href="/docs/api.html">API</a>
+        <a href="/docs/tutorials.html">Tutorials</a>
+        <a href="/docs/governance.html">Governance</a>
+      </nav>
+    </header>
+
+    <main class="doc-layout">
+      <aside class="toc">
+        <a href="#map">Map</a>
+        <a href="#repos">Repos</a>
+        <a href="#flow">Flow</a>
+        <a href="#boundaries">Boundaries</a>
+      </aside>
+      <article class="doc">
+        <p class="eyebrow">Architecture</p>
+        <h1>Operating Structure</h1>
+        <p>
+          Mullusi uses separated repositories and domains so public presentation,
+          documentation, runtime services, developer tools, research engines, and internal
+          operations do not collapse into one unclear system.
+        </p>
+
+        <h2 id="map">System Map</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>Repo</th>
+              <th>Domain</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Public website</td>
+              <td>mullusi/mullusi-site</td>
+              <td>mullusi.com</td>
+              <td>Live</td>
+            </tr>
+            <tr>
+              <td>Documentation</td>
+              <td>mullusi/mullusi-docs</td>
+              <td>docs.mullusi.com</td>
+              <td>Baseline</td>
+            </tr>
+            <tr>
+              <td>Control plane</td>
+              <td>mullusi/mullu-control-plane</td>
+              <td>dashboard.mullusi.com and api.mullusi.com</td>
+              <td>Planned</td>
+            </tr>
+            <tr>
+              <td>SDK</td>
+              <td>mullusi/msic-sdk</td>
+              <td>Package registry and releases</td>
+              <td>Planned</td>
+            </tr>
+            <tr>
+              <td>Operations</td>
+              <td>mullusi/ops</td>
+              <td>Private</td>
+              <td>Active</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="repos">Repository Roles</h2>
+        <p>
+          Each repository has one primary responsibility. Public repositories explain or
+          deliver public surfaces. Private repositories hold operational planning,
+          deployment notes, costs, and sensitive control records.
+        </p>
+
+        <h2 id="flow">Deployment Flow</h2>
+        <pre><code>GitHub repository
+  -> build or static validation
+  -> deployment host
+  -> DNS target
+  -> public domain
+  -> monitoring and rollback</code></pre>
+
+        <h2 id="boundaries">Boundary Rule</h2>
+        <p>
+          Website claims, documentation claims, runtime behavior, and research claims are
+          separate outputs. A claim moves between layers only when its source, validation
+          path, and rollback plan are explicit.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>
+
