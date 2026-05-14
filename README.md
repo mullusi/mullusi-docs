@@ -33,6 +33,7 @@ mullusi/mullusi-docs
     |-- architecture.html
     |-- api.html
     |-- governance.html
+    |-- launch.html
     |-- mfidel.html
     |-- search.html
     `-- tutorials.html

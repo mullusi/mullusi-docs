@@ -26,6 +26,7 @@ const requiredFiles = [
   "docs/api.html",
   "docs/tutorials.html",
   "docs/governance.html",
+  "docs/launch.html",
   "docs/mfidel.html",
   "docs/search.html",
 ];

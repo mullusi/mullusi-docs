@@ -36,6 +36,13 @@
       "keywords": ["mfidel", "fidel", "atomic", "grid", "overlay", "ethiopian script"]
     },
     {
+      "title": "Documentation Launch State",
+      "section": "Launch",
+      "url": "/docs/launch.html",
+      "summary": "Current docs DNS blocker, required CNAME record, HTTPS state, and verification command.",
+      "keywords": ["launch", "dns", "cname", "github pages", "https", "verification"]
+    },
+    {
       "title": "Find Public Documentation",
       "section": "Search",
       "url": "/docs/search.html",

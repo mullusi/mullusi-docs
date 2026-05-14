@@ -1,0 +1,116 @@
+<!--
+Purpose: publish the current Mullusi documentation launch state and verification commands.
+Governance scope: DNS readiness, GitHub Pages state, HTTPS enforcement, and public launch blockers.
+Dependencies: assets/styles.css, GitHub Pages, DNS provider, and ops verification command.
+Invariants: operational claims distinguish verified state from pending external configuration.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Launch State | Mullusi Docs</title>
+    <meta name="description" content="Current Mullusi documentation launch state, DNS requirement, and verification commands.">
+    <link rel="canonical" href="https://docs.mullusi.com/docs/launch.html">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">M</span><span>Mullusi Docs</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/docs/architecture.html">Architecture</a>
+        <a href="/docs/api.html">API</a>
+        <a href="/docs/tutorials.html">Tutorials</a>
+        <a href="/docs/governance.html">Governance</a>
+        <a href="/docs/launch.html">Launch</a>
+        <a href="/docs/search.html">Search</a>
+      </nav>
+    </header>
+
+    <main class="doc-layout">
+      <aside class="toc">
+        <a href="#status">Status</a>
+        <a href="#dns">DNS</a>
+        <a href="#verify">Verify</a>
+        <a href="#blocked">Blocked</a>
+      </aside>
+      <article class="doc">
+        <p class="eyebrow">Launch State</p>
+        <h1>Documentation hosting is built. DNS is the remaining public blocker.</h1>
+        <p>
+          The `mullusi/mullusi-docs` repository is deployed through GitHub Pages and
+          configured for `docs.mullusi.com`. The custom domain cannot complete HTTPS
+          enforcement until the DNS record exists at the domain provider.
+        </p>
+
+        <h2 id="status">Current State</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Check</th>
+              <th>State</th>
+              <th>Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Docs repository</td>
+              <td><span class="state state-pass">Done</span></td>
+              <td>`mullusi/mullusi-docs` exists and validates through GitHub Actions.</td>
+            </tr>
+            <tr>
+              <td>GitHub Pages</td>
+              <td><span class="state state-pass">Built</span></td>
+              <td>Pages source is `main` root with custom domain `docs.mullusi.com`.</td>
+            </tr>
+            <tr>
+              <td>DNS record</td>
+              <td><span class="state state-pending">Pending</span></td>
+              <td>`docs.mullusi.com` currently returns no DNS answer.</td>
+            </tr>
+            <tr>
+              <td>HTTPS enforcement</td>
+              <td><span class="state state-pending">Pending</span></td>
+              <td>Certificate issuance waits for DNS resolution.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="dns">Required DNS Record</h2>
+        <p>
+          Create this DNS record at the active DNS provider for `mullusi.com`.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Host</th>
+              <th>Type</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>docs</code></td>
+              <td><code>CNAME</code></td>
+              <td><code>mullusi.github.io</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="verify">Verification Command</h2>
+        <p>
+          After DNS is created and has propagated, run the ops verifier from
+          `mullusi/ops`:
+        </p>
+        <pre><code>.\scripts\verify-domains.ps1 -RequireDocsReady</code></pre>
+
+        <h2 id="blocked">What Remains Blocked</h2>
+        <ul>
+          <li>Do not mark docs HTTPS complete until the verifier passes.</li>
+          <li>Do not treat `docs.mullusi.com` as public-ready while DNS returns no answer.</li>
+          <li>Do not move dashboard or API launch status forward until their hosts exist.</li>
+        </ul>
+      </article>
+    </main>
+  </body>
+</html>
