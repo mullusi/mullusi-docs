@@ -125,6 +125,59 @@ h3 {
   margin-top: 22px;
 }
 
+.search-panel {
+  max-width: 760px;
+  margin-top: 28px;
+}
+
+.search-panel-wide {
+  margin-top: 22px;
+}
+
+.search-panel label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 750;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.search-input,
+.search-button {
+  min-height: 46px;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 0 14px;
+  color: var(--ink);
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  outline: 3px solid rgba(11, 118, 110, 0.14);
+}
+
+.search-button {
+  border: 0;
+  padding: 0 18px;
+  color: white;
+  background: var(--accent);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background: var(--accent-dark);
+}
+
 .section {
   max-width: var(--max);
   margin: 0 auto;
@@ -151,6 +204,38 @@ h3 {
 
 .card:hover {
   border-color: var(--accent);
+}
+
+.search-results {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.result-card {
+  display: block;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-decoration: none;
+  background: var(--surface);
+}
+
+.result-card:hover {
+  border-color: var(--accent);
+}
+
+.result-card h2 {
+  font-size: 1.22rem;
+  margin: 8px 0;
+}
+
+.empty-state {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  background: var(--panel);
 }
 
 .card p,
@@ -279,5 +364,8 @@ code {
     padding-bottom: 10px;
     border-bottom: 1px solid var(--line);
   }
-}
 
+  .search-form {
+    grid-template-columns: 1fr;
+  }
+}

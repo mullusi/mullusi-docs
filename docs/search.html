@@ -1,0 +1,57 @@
+<!--
+Purpose: provide static documentation search for Mullusi docs.
+Governance scope: public navigation, deterministic search index lookup, and explicit error display.
+Dependencies: assets/styles.css, assets/search.js, and data/search-index.json.
+Invariants: no backend dependency, no private content exposure, and no silent search-index failure.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search | Mullusi Docs</title>
+    <meta name="description" content="Search public Mullusi documentation for architecture, API, governance, tutorials, and Mfidel rules.">
+    <link rel="canonical" href="https://docs.mullusi.com/docs/search.html">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script type="module" src="/assets/search.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">M</span><span>Mullusi Docs</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/docs/architecture.html">Architecture</a>
+        <a href="/docs/api.html">API</a>
+        <a href="/docs/tutorials.html">Tutorials</a>
+        <a href="/docs/governance.html">Governance</a>
+        <a href="/docs/search.html">Search</a>
+      </nav>
+    </header>
+
+    <main class="doc-layout">
+      <aside class="toc">
+        <a href="#search">Search</a>
+        <a href="#results">Results</a>
+      </aside>
+      <article class="doc">
+        <p class="eyebrow">Docs search</p>
+        <h1>Find Public Documentation</h1>
+        <p>
+          Search the static docs index for system boundaries, API drafts,
+          tutorials, governance rules, and Mfidel atomicity constraints.
+        </p>
+
+        <section id="search" class="search-panel search-panel-wide">
+          <label for="docs-search">Search terms</label>
+          <div class="search-form">
+            <input id="docs-search" class="search-input" name="q" type="search" placeholder="Example: API health, rollout, Mfidel" autocomplete="off">
+            <button id="docs-search-button" class="search-button" type="button">Search</button>
+          </div>
+        </section>
+
+        <section id="results" class="search-results" aria-live="polite">
+          <p class="empty-state">Enter a term to search the docs index.</p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

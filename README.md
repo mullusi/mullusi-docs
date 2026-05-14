@@ -25,12 +25,16 @@ mullusi/mullusi-docs
 |-- robots.txt
 |-- sitemap.xml
 |-- assets/
+|   |-- search.js
 |   `-- styles.css
+|-- data/
+|   `-- search-index.json
 `-- docs/
     |-- architecture.html
     |-- api.html
     |-- governance.html
     |-- mfidel.html
+    |-- search.html
     `-- tutorials.html
 ```
 
@@ -58,4 +62,3 @@ Then open `http://localhost:8081`.
 2. Keep public claims traceable to working code, examples, or explicit roadmap state.
 3. Do not commit secrets, credentials, private costs, or internal-only plans.
 4. Verify links and page load before deploy.
-

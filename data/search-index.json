@@ -1,0 +1,46 @@
+{
+  "entries": [
+    {
+      "title": "Operating Structure",
+      "section": "Architecture",
+      "url": "/docs/architecture.html",
+      "summary": "System layers, repository roles, deployment flow, and public/private boundaries.",
+      "keywords": ["architecture", "repos", "domains", "deployment", "ops", "control plane"]
+    },
+    {
+      "title": "Governed Interface Draft",
+      "section": "API",
+      "url": "/docs/api.html",
+      "summary": "Draft API lifecycle, stability labels, endpoint shape, and explicit error contracts.",
+      "keywords": ["api", "health", "traversals", "request", "response", "errors"]
+    },
+    {
+      "title": "Deterministic Workflows",
+      "section": "Tutorials",
+      "url": "/docs/tutorials.html",
+      "summary": "Local preview, website registry updates, and documentation update procedures.",
+      "keywords": ["tutorial", "preview", "registry", "docs", "workflow"]
+    },
+    {
+      "title": "Constraint And Proof Discipline",
+      "section": "Governance",
+      "url": "/docs/governance.html",
+      "summary": "Constraint rules, proof states, release gates, rollback, and public verification discipline.",
+      "keywords": ["governance", "proof", "constraints", "release", "rollback", "verification"]
+    },
+    {
+      "title": "Atomic Fidel Boundary",
+      "section": "Mfidel",
+      "url": "/docs/mfidel.html",
+      "summary": "Atomic fidel identity, grid references, overlay semantics, and prohibited decomposition models.",
+      "keywords": ["mfidel", "fidel", "atomic", "grid", "overlay", "ethiopian script"]
+    },
+    {
+      "title": "Find Public Documentation",
+      "section": "Search",
+      "url": "/docs/search.html",
+      "summary": "Static search surface for Mullusi public documentation.",
+      "keywords": ["search", "navigation", "docs index"]
+    }
+  ]
+}
