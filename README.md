@@ -29,13 +29,15 @@ mullusi/mullusi-docs
 |   `-- styles.css
 |-- data/
 |   `-- search-index.json
-`-- docs/
+|-- docs/
     |-- architecture.html
     |-- api.html
     |-- governance.html
     |-- mfidel.html
     |-- search.html
     `-- tutorials.html
+`-- scripts/
+    `-- validate-docs.mjs
 ```
 
 ## Documentation Boundaries
@@ -55,6 +57,15 @@ python3 -m http.server 8081
 ```
 
 Then open `http://localhost:8081`.
+
+## Validation
+
+```bash
+node --check assets/search.js
+node scripts/validate-docs.mjs
+```
+
+The validation script checks required files, local links, search-index targets, sitemap targets, public-safe text, and secret-like patterns.
 
 ## Update Discipline
 

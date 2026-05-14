@@ -1,0 +1,30 @@
+# Purpose: verify Mullusi docs links, search index, sitemap, and public text gates.
+# Governance scope: static documentation deployment safety before GitHub Pages builds.
+# Dependencies: GitHub Actions and Node.js.
+# Invariants: pushes and pull requests fail when docs validation fails.
+
+name: Validate Docs
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check search JavaScript syntax
+        run: node --check assets/search.js
+
+      - name: Validate static docs
+        run: node scripts/validate-docs.mjs
