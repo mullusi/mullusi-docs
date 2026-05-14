@@ -10,7 +10,7 @@ Invariants: operational claims distinguish verified state from pending external 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Launch State | Mullusi Docs</title>
-    <meta name="description" content="Current Mullusi documentation launch state, DNS requirement, and verification commands.">
+    <meta name="description" content="Current Mullusi documentation launch state, DNS verification, HTTPS certificate state, and verification commands.">
     <link rel="canonical" href="https://docs.mullusi.com/docs/launch.html">
     <link rel="stylesheet" href="/assets/styles.css">
   </head>
@@ -36,11 +36,11 @@ Invariants: operational claims distinguish verified state from pending external 
       </aside>
       <article class="doc">
         <p class="eyebrow">Launch State</p>
-        <h1>Documentation hosting is built. DNS is the remaining public blocker.</h1>
+        <h1>Documentation DNS is live. HTTPS certificate provisioning remains.</h1>
         <p>
           The `mullusi/mullusi-docs` repository is deployed through GitHub Pages and
-          configured for `docs.mullusi.com`. The custom domain cannot complete HTTPS
-          enforcement until the DNS record exists at the domain provider.
+          configured for `docs.mullusi.com`. The DNS record now resolves to GitHub Pages;
+          HTTPS enforcement waits for GitHub Pages certificate creation.
         </p>
 
         <h2 id="status">Current State</h2>
@@ -65,20 +65,20 @@ Invariants: operational claims distinguish verified state from pending external 
             </tr>
             <tr>
               <td>DNS record</td>
-              <td><span class="state state-pending">Pending</span></td>
-              <td>`docs.mullusi.com` currently returns no DNS answer.</td>
+              <td><span class="state state-pass">Done</span></td>
+              <td>`docs.mullusi.com` resolves as a CNAME to `mullusi.github.io`.</td>
             </tr>
             <tr>
               <td>HTTPS enforcement</td>
               <td><span class="state state-pending">Pending</span></td>
-              <td>Certificate issuance waits for DNS resolution.</td>
+              <td>GitHub Pages reports `https_enforced=false`; the certificate does not exist yet.</td>
             </tr>
           </tbody>
         </table>
 
-        <h2 id="dns">Required DNS Record</h2>
+        <h2 id="dns">Verified DNS Record</h2>
         <p>
-          Create this DNS record at the active DNS provider for `mullusi.com`.
+          This DNS record is now present at the active DNS provider for `mullusi.com`.
         </p>
         <table>
           <thead>
@@ -99,15 +99,15 @@ Invariants: operational claims distinguish verified state from pending external 
 
         <h2 id="verify">Verification Command</h2>
         <p>
-          After DNS is created and has propagated, run the ops verifier from
-          `mullusi/ops`:
+          Run the ops verifier from `mullusi/ops`. The docs readiness gate should remain
+          pending until HTTPS enforcement passes.
         </p>
-        <pre><code>.\scripts\verify-domains.ps1 -RequireDocsReady</code></pre>
+        <pre><code>powershell -ExecutionPolicy Bypass -File .\scripts\verify-domains.ps1 -RequireDocsReady</code></pre>
 
         <h2 id="blocked">What Remains Blocked</h2>
         <ul>
           <li>Do not mark docs HTTPS complete until the verifier passes.</li>
-          <li>Do not treat `docs.mullusi.com` as public-ready while DNS returns no answer.</li>
+          <li>Do not treat `docs.mullusi.com` as fully public-ready until certificate issuance and HTTPS enforcement pass.</li>
           <li>Do not move dashboard or API launch status forward until their hosts exist.</li>
         </ul>
       </article>

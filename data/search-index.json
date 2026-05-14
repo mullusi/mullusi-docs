@@ -39,7 +39,7 @@
       "title": "Documentation Launch State",
       "section": "Launch",
       "url": "/docs/launch.html",
-      "summary": "Current docs DNS blocker, required CNAME record, HTTPS state, and verification command.",
+      "summary": "Current docs DNS verification, HTTPS certificate state, and verification command.",
       "keywords": ["launch", "dns", "cname", "github pages", "https", "verification"]
     },
     {
