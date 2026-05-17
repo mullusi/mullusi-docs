@@ -51,6 +51,8 @@ mullusi/mullusi-docs
 | Governance | Public-safe | Explain verification and constraint discipline |
 | Mfidel | Public-safe | Preserve atomic fidel rules; no decomposition model |
 
+See `PUBLICATION_POLICY.md` for the public-use boundary and claim discipline.
+
 ## Local Preview
 
 ```bash
