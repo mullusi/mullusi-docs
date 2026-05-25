@@ -1,0 +1,12 @@
+# Purpose: enforce review ownership for Mullusi public documentation.
+# Invariant: documentation changes require bounded public-claim review and security-sensitive surfaces require security review.
+
+* @mullusi/docs-maintainers
+
+/.github/ @mullusi/docs-maintainers @mullusi/security
+/docs/ @mullusi/docs-maintainers
+/assets/ @mullusi/docs-maintainers
+/scripts/ @mullusi/docs-maintainers @mullusi/security
+/PUBLICATION_POLICY.md @mullusi/docs-maintainers @mullusi/security
+/NOTICE.md @mullusi/docs-maintainers @mullusi/security
+/README.md @mullusi/docs-maintainers
