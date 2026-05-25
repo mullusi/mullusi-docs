@@ -2,7 +2,7 @@
 
 Purpose: public technical documentation source for Mullusi systems, architecture, APIs, and tutorials.
 Governance scope: public explanation, developer onboarding, architecture contracts, and launch-safe research boundaries.
-Dependencies: `mullusi/mullusi-site`, future `mullusi/mullu-control-plane`, GitHub Pages or Cloudflare Pages.
+Dependencies: `mullusi/mullusi-site`, future `mullusi/mullusi-control-plane`, GitHub Pages or Cloudflare Pages.
 Invariants: public docs contain no secrets, no private roadmap claims, and no unsupported production guarantees.
 
 ## Source Of Truth
