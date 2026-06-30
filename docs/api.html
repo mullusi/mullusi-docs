@@ -10,7 +10,7 @@ Invariants: draft endpoints are labeled draft and must not imply production avai
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>API | Mullusi Docs</title>
-    <meta name="description" content="Draft API documentation for Mullusi governed service interfaces.">
+    <meta name="description" content="Canonical draft API documentation for the Mullu Govern work review contract.">
     <link rel="canonical" href="https://docs.mullusi.com/docs/api.html">
     <link rel="stylesheet" href="/assets/styles.css">
   </head>
@@ -32,15 +32,16 @@ Invariants: draft endpoints are labeled draft and must not imply production avai
         <a href="#status">Status</a>
         <a href="#lifecycle">Lifecycle</a>
         <a href="#endpoints">Endpoints</a>
+        <a href="#example">Example</a>
         <a href="#errors">Errors</a>
       </aside>
       <article class="doc">
         <p class="eyebrow">API</p>
         <h1>Governed Interface Draft</h1>
         <p>
-          The Mullusi API will expose governed service requests through
-          `api.mullusi.com`. Until the control plane is launched, this page is a draft
-          contract and not a production availability claim.
+          The canonical public v1 draft is <code>POST /v1/govern/evaluate</code>.
+          Until the control plane is launched, this page is a draft contract and
+          not a production availability claim.
         </p>
 
         <h2 id="status">Stability Labels</h2>
@@ -71,10 +72,9 @@ Invariants: draft endpoints are labeled draft and must not imply production avai
         <pre><code>request
   -> authenticate
   -> validate schema
-  -> apply governance constraints
-  -> execute service action
-  -> emit trace
-  -> return typed response</code></pre>
+  -> apply review constraints
+  -> create review record
+  -> return verdict, reason, repair notes, and record reference</code></pre>
 
         <h2 id="endpoints">Draft Endpoints</h2>
         <table>
@@ -92,17 +92,28 @@ Invariants: draft endpoints are labeled draft and must not imply production avai
               <td>Report service readiness.</td>
             </tr>
             <tr>
-              <td><code>POST /v1/traversals</code></td>
+              <td><code>POST /v1/govern/evaluate</code></td>
               <td>Draft</td>
-              <td>Submit a governed traversal request.</td>
-            </tr>
-            <tr>
-              <td><code>GET /v1/traversals/{id}</code></td>
-              <td>Draft</td>
-              <td>Fetch traversal state and trace metadata.</td>
+              <td>Review a proposed work action and return status, reason, repair notes, and record details.</td>
             </tr>
           </tbody>
         </table>
+
+        <h2 id="example">Canonical Example</h2>
+        <pre><code>{
+  "request": {
+    "action": "publish_release_note",
+    "risk_type": "public_release",
+    "evidence_refs": ["release-note-draft"],
+    "reviewer": "human-reviewer"
+  },
+  "response": {
+    "status": "hold_for_approval",
+    "reason": "public release requires reviewer acceptance",
+    "repair_notes": ["attach approval reference before execution"],
+    "record_ref": "draft-record-reference"
+  }
+}</code></pre>
 
         <h2 id="errors">Error Contract</h2>
         <p>
