@@ -11,8 +11,8 @@
       "title": "Governed Interface Draft",
       "section": "API",
       "url": "/docs/api.html",
-      "summary": "Draft API lifecycle, stability labels, endpoint shape, and explicit error contracts.",
-      "keywords": ["api", "health", "traversals", "request", "response", "errors"]
+      "summary": "Canonical draft Mullu Govern API lifecycle, POST /v1/govern/evaluate endpoint shape, example, and explicit error contracts.",
+      "keywords": ["api", "health", "govern", "evaluate", "work review", "request", "response", "errors"]
     },
     {
       "title": "Deterministic Workflows",
