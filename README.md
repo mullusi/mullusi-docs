@@ -29,6 +29,8 @@ mullusi/mullusi-docs
 |   `-- styles.css
 |-- data/
 |   `-- search-index.json
+|-- samples/
+|   `-- mullusi-reading-sample.{csv,docx,pdf,xlsx}
 |-- docs/
     |-- architecture.html
     |-- api.html
@@ -50,6 +52,7 @@ mullusi/mullusi-docs
 | Tutorials | Draft | Keep examples deterministic and reproducible |
 | Governance | Public-safe | Explain verification and constraint discipline |
 | Mfidel | Public-safe | Preserve atomic fidel rules; no decomposition model |
+| Reading samples | Public-safe | Small synthetic files used to verify that Mullusi document readers can read a real, publicly hosted file; no private data and no product claim |
 
 See `PUBLICATION_POLICY.md` for the public-use boundary and claim discipline.
 
